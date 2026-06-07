@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as SubscriptionRouteImport } from './routes/subscription'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WelcomeIndexRouteImport } from './routes/welcome.index'
 import { Route as WelcomeToolkitRouteImport } from './routes/welcome.toolkit'
+import { Route as WelcomeSetGoalsRouteImport } from './routes/welcome.set-goals'
 import { Route as WelcomeRoadmapRouteImport } from './routes/welcome.roadmap'
 import { Route as WelcomeResourcesRouteImport } from './routes/welcome.resources'
 import { Route as WelcomeOpportunitiesRouteImport } from './routes/welcome.opportunities'
@@ -18,124 +24,213 @@ import { Route as WelcomeGuidanceRouteImport } from './routes/welcome.guidance'
 import { Route as WelcomeGoalInsightsRouteImport } from './routes/welcome.goal-insights'
 import { Route as WelcomeCommunityRouteImport } from './routes/welcome.community'
 
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscriptionRoute = SubscriptionRouteImport.update({
+  id: '/subscription',
+  path: '/subscription',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WelcomeIndexRoute = WelcomeIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => WelcomeRoute,
+} as any)
 const WelcomeToolkitRoute = WelcomeToolkitRouteImport.update({
-  id: '/welcome/toolkit',
-  path: '/welcome/toolkit',
-  getParentRoute: () => rootRouteImport,
+  id: '/toolkit',
+  path: '/toolkit',
+  getParentRoute: () => WelcomeRoute,
+} as any)
+const WelcomeSetGoalsRoute = WelcomeSetGoalsRouteImport.update({
+  id: '/set-goals',
+  path: '/set-goals',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 const WelcomeRoadmapRoute = WelcomeRoadmapRouteImport.update({
-  id: '/welcome/roadmap',
-  path: '/welcome/roadmap',
-  getParentRoute: () => rootRouteImport,
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 const WelcomeResourcesRoute = WelcomeResourcesRouteImport.update({
-  id: '/welcome/resources',
-  path: '/welcome/resources',
-  getParentRoute: () => rootRouteImport,
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 const WelcomeOpportunitiesRoute = WelcomeOpportunitiesRouteImport.update({
-  id: '/welcome/opportunities',
-  path: '/welcome/opportunities',
-  getParentRoute: () => rootRouteImport,
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 const WelcomeGuidanceRoute = WelcomeGuidanceRouteImport.update({
-  id: '/welcome/guidance',
-  path: '/welcome/guidance',
-  getParentRoute: () => rootRouteImport,
+  id: '/guidance',
+  path: '/guidance',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 const WelcomeGoalInsightsRoute = WelcomeGoalInsightsRouteImport.update({
-  id: '/welcome/goal-insights',
-  path: '/welcome/goal-insights',
-  getParentRoute: () => rootRouteImport,
+  id: '/goal-insights',
+  path: '/goal-insights',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 const WelcomeCommunityRoute = WelcomeCommunityRouteImport.update({
-  id: '/welcome/community',
-  path: '/welcome/community',
-  getParentRoute: () => rootRouteImport,
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => WelcomeRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/subscription': typeof SubscriptionRoute
+  '/welcome': typeof WelcomeRouteWithChildren
   '/welcome/community': typeof WelcomeCommunityRoute
   '/welcome/goal-insights': typeof WelcomeGoalInsightsRoute
   '/welcome/guidance': typeof WelcomeGuidanceRoute
   '/welcome/opportunities': typeof WelcomeOpportunitiesRoute
   '/welcome/resources': typeof WelcomeResourcesRoute
   '/welcome/roadmap': typeof WelcomeRoadmapRoute
+  '/welcome/set-goals': typeof WelcomeSetGoalsRoute
   '/welcome/toolkit': typeof WelcomeToolkitRoute
+  '/welcome/': typeof WelcomeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/subscription': typeof SubscriptionRoute
   '/welcome/community': typeof WelcomeCommunityRoute
   '/welcome/goal-insights': typeof WelcomeGoalInsightsRoute
   '/welcome/guidance': typeof WelcomeGuidanceRoute
   '/welcome/opportunities': typeof WelcomeOpportunitiesRoute
   '/welcome/resources': typeof WelcomeResourcesRoute
   '/welcome/roadmap': typeof WelcomeRoadmapRoute
+  '/welcome/set-goals': typeof WelcomeSetGoalsRoute
   '/welcome/toolkit': typeof WelcomeToolkitRoute
+  '/welcome': typeof WelcomeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/subscription': typeof SubscriptionRoute
+  '/welcome': typeof WelcomeRouteWithChildren
   '/welcome/community': typeof WelcomeCommunityRoute
   '/welcome/goal-insights': typeof WelcomeGoalInsightsRoute
   '/welcome/guidance': typeof WelcomeGuidanceRoute
   '/welcome/opportunities': typeof WelcomeOpportunitiesRoute
   '/welcome/resources': typeof WelcomeResourcesRoute
   '/welcome/roadmap': typeof WelcomeRoadmapRoute
+  '/welcome/set-goals': typeof WelcomeSetGoalsRoute
   '/welcome/toolkit': typeof WelcomeToolkitRoute
+  '/welcome/': typeof WelcomeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
+    | '/signup'
+    | '/subscription'
+    | '/welcome'
     | '/welcome/community'
     | '/welcome/goal-insights'
     | '/welcome/guidance'
     | '/welcome/opportunities'
     | '/welcome/resources'
     | '/welcome/roadmap'
+    | '/welcome/set-goals'
     | '/welcome/toolkit'
+    | '/welcome/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
+    | '/signup'
+    | '/subscription'
     | '/welcome/community'
     | '/welcome/goal-insights'
     | '/welcome/guidance'
     | '/welcome/opportunities'
     | '/welcome/resources'
     | '/welcome/roadmap'
+    | '/welcome/set-goals'
     | '/welcome/toolkit'
+    | '/welcome'
   id:
     | '__root__'
     | '/'
+    | '/login'
+    | '/signup'
+    | '/subscription'
+    | '/welcome'
     | '/welcome/community'
     | '/welcome/goal-insights'
     | '/welcome/guidance'
     | '/welcome/opportunities'
     | '/welcome/resources'
     | '/welcome/roadmap'
+    | '/welcome/set-goals'
     | '/welcome/toolkit'
+    | '/welcome/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  WelcomeCommunityRoute: typeof WelcomeCommunityRoute
-  WelcomeGoalInsightsRoute: typeof WelcomeGoalInsightsRoute
-  WelcomeGuidanceRoute: typeof WelcomeGuidanceRoute
-  WelcomeOpportunitiesRoute: typeof WelcomeOpportunitiesRoute
-  WelcomeResourcesRoute: typeof WelcomeResourcesRoute
-  WelcomeRoadmapRoute: typeof WelcomeRoadmapRoute
-  WelcomeToolkitRoute: typeof WelcomeToolkitRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  SubscriptionRoute: typeof SubscriptionRoute
+  WelcomeRoute: typeof WelcomeRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscription': {
+      id: '/subscription'
+      path: '/subscription'
+      fullPath: '/subscription'
+      preLoaderRoute: typeof SubscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -143,78 +238,106 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/welcome/': {
+      id: '/welcome/'
+      path: '/'
+      fullPath: '/welcome/'
+      preLoaderRoute: typeof WelcomeIndexRouteImport
+      parentRoute: typeof WelcomeRoute
+    }
     '/welcome/toolkit': {
       id: '/welcome/toolkit'
-      path: '/welcome/toolkit'
+      path: '/toolkit'
       fullPath: '/welcome/toolkit'
       preLoaderRoute: typeof WelcomeToolkitRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
+    }
+    '/welcome/set-goals': {
+      id: '/welcome/set-goals'
+      path: '/set-goals'
+      fullPath: '/welcome/set-goals'
+      preLoaderRoute: typeof WelcomeSetGoalsRouteImport
+      parentRoute: typeof WelcomeRoute
     }
     '/welcome/roadmap': {
       id: '/welcome/roadmap'
-      path: '/welcome/roadmap'
+      path: '/roadmap'
       fullPath: '/welcome/roadmap'
       preLoaderRoute: typeof WelcomeRoadmapRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
     }
     '/welcome/resources': {
       id: '/welcome/resources'
-      path: '/welcome/resources'
+      path: '/resources'
       fullPath: '/welcome/resources'
       preLoaderRoute: typeof WelcomeResourcesRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
     }
     '/welcome/opportunities': {
       id: '/welcome/opportunities'
-      path: '/welcome/opportunities'
+      path: '/opportunities'
       fullPath: '/welcome/opportunities'
       preLoaderRoute: typeof WelcomeOpportunitiesRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
     }
     '/welcome/guidance': {
       id: '/welcome/guidance'
-      path: '/welcome/guidance'
+      path: '/guidance'
       fullPath: '/welcome/guidance'
       preLoaderRoute: typeof WelcomeGuidanceRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
     }
     '/welcome/goal-insights': {
       id: '/welcome/goal-insights'
-      path: '/welcome/goal-insights'
+      path: '/goal-insights'
       fullPath: '/welcome/goal-insights'
       preLoaderRoute: typeof WelcomeGoalInsightsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
     }
     '/welcome/community': {
       id: '/welcome/community'
-      path: '/welcome/community'
+      path: '/community'
       fullPath: '/welcome/community'
       preLoaderRoute: typeof WelcomeCommunityRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof WelcomeRoute
     }
   }
 }
 
-const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+interface WelcomeRouteChildren {
+  WelcomeCommunityRoute: typeof WelcomeCommunityRoute
+  WelcomeGoalInsightsRoute: typeof WelcomeGoalInsightsRoute
+  WelcomeGuidanceRoute: typeof WelcomeGuidanceRoute
+  WelcomeOpportunitiesRoute: typeof WelcomeOpportunitiesRoute
+  WelcomeResourcesRoute: typeof WelcomeResourcesRoute
+  WelcomeRoadmapRoute: typeof WelcomeRoadmapRoute
+  WelcomeSetGoalsRoute: typeof WelcomeSetGoalsRoute
+  WelcomeToolkitRoute: typeof WelcomeToolkitRoute
+  WelcomeIndexRoute: typeof WelcomeIndexRoute
+}
+
+const WelcomeRouteChildren: WelcomeRouteChildren = {
   WelcomeCommunityRoute: WelcomeCommunityRoute,
   WelcomeGoalInsightsRoute: WelcomeGoalInsightsRoute,
   WelcomeGuidanceRoute: WelcomeGuidanceRoute,
   WelcomeOpportunitiesRoute: WelcomeOpportunitiesRoute,
   WelcomeResourcesRoute: WelcomeResourcesRoute,
   WelcomeRoadmapRoute: WelcomeRoadmapRoute,
+  WelcomeSetGoalsRoute: WelcomeSetGoalsRoute,
   WelcomeToolkitRoute: WelcomeToolkitRoute,
+  WelcomeIndexRoute: WelcomeIndexRoute,
+}
+
+const WelcomeRouteWithChildren =
+  WelcomeRoute._addFileChildren(WelcomeRouteChildren)
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  SubscriptionRoute: SubscriptionRoute,
+  WelcomeRoute: WelcomeRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
