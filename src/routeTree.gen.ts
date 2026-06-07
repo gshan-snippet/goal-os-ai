@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WelcomeToolkitRouteImport } from './routes/welcome.toolkit'
+import { Route as WelcomeRoadmapRouteImport } from './routes/welcome.roadmap'
+import { Route as WelcomeResourcesRouteImport } from './routes/welcome.resources'
+import { Route as WelcomeOpportunitiesRouteImport } from './routes/welcome.opportunities'
+import { Route as WelcomeGuidanceRouteImport } from './routes/welcome.guidance'
+import { Route as WelcomeGoalInsightsRouteImport } from './routes/welcome.goal-insights'
+import { Route as WelcomeCommunityRouteImport } from './routes/welcome.community'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WelcomeToolkitRoute = WelcomeToolkitRouteImport.update({
+  id: '/welcome/toolkit',
+  path: '/welcome/toolkit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeRoadmapRoute = WelcomeRoadmapRouteImport.update({
+  id: '/welcome/roadmap',
+  path: '/welcome/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeResourcesRoute = WelcomeResourcesRouteImport.update({
+  id: '/welcome/resources',
+  path: '/welcome/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeOpportunitiesRoute = WelcomeOpportunitiesRouteImport.update({
+  id: '/welcome/opportunities',
+  path: '/welcome/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeGuidanceRoute = WelcomeGuidanceRouteImport.update({
+  id: '/welcome/guidance',
+  path: '/welcome/guidance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeGoalInsightsRoute = WelcomeGoalInsightsRouteImport.update({
+  id: '/welcome/goal-insights',
+  path: '/welcome/goal-insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeCommunityRoute = WelcomeCommunityRouteImport.update({
+  id: '/welcome/community',
+  path: '/welcome/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/welcome/community': typeof WelcomeCommunityRoute
+  '/welcome/goal-insights': typeof WelcomeGoalInsightsRoute
+  '/welcome/guidance': typeof WelcomeGuidanceRoute
+  '/welcome/opportunities': typeof WelcomeOpportunitiesRoute
+  '/welcome/resources': typeof WelcomeResourcesRoute
+  '/welcome/roadmap': typeof WelcomeRoadmapRoute
+  '/welcome/toolkit': typeof WelcomeToolkitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/welcome/community': typeof WelcomeCommunityRoute
+  '/welcome/goal-insights': typeof WelcomeGoalInsightsRoute
+  '/welcome/guidance': typeof WelcomeGuidanceRoute
+  '/welcome/opportunities': typeof WelcomeOpportunitiesRoute
+  '/welcome/resources': typeof WelcomeResourcesRoute
+  '/welcome/roadmap': typeof WelcomeRoadmapRoute
+  '/welcome/toolkit': typeof WelcomeToolkitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/welcome/community': typeof WelcomeCommunityRoute
+  '/welcome/goal-insights': typeof WelcomeGoalInsightsRoute
+  '/welcome/guidance': typeof WelcomeGuidanceRoute
+  '/welcome/opportunities': typeof WelcomeOpportunitiesRoute
+  '/welcome/resources': typeof WelcomeResourcesRoute
+  '/welcome/roadmap': typeof WelcomeRoadmapRoute
+  '/welcome/toolkit': typeof WelcomeToolkitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/welcome/community'
+    | '/welcome/goal-insights'
+    | '/welcome/guidance'
+    | '/welcome/opportunities'
+    | '/welcome/resources'
+    | '/welcome/roadmap'
+    | '/welcome/toolkit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/welcome/community'
+    | '/welcome/goal-insights'
+    | '/welcome/guidance'
+    | '/welcome/opportunities'
+    | '/welcome/resources'
+    | '/welcome/roadmap'
+    | '/welcome/toolkit'
+  id:
+    | '__root__'
+    | '/'
+    | '/welcome/community'
+    | '/welcome/goal-insights'
+    | '/welcome/guidance'
+    | '/welcome/opportunities'
+    | '/welcome/resources'
+    | '/welcome/roadmap'
+    | '/welcome/toolkit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WelcomeCommunityRoute: typeof WelcomeCommunityRoute
+  WelcomeGoalInsightsRoute: typeof WelcomeGoalInsightsRoute
+  WelcomeGuidanceRoute: typeof WelcomeGuidanceRoute
+  WelcomeOpportunitiesRoute: typeof WelcomeOpportunitiesRoute
+  WelcomeResourcesRoute: typeof WelcomeResourcesRoute
+  WelcomeRoadmapRoute: typeof WelcomeRoadmapRoute
+  WelcomeToolkitRoute: typeof WelcomeToolkitRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/welcome/toolkit': {
+      id: '/welcome/toolkit'
+      path: '/welcome/toolkit'
+      fullPath: '/welcome/toolkit'
+      preLoaderRoute: typeof WelcomeToolkitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome/roadmap': {
+      id: '/welcome/roadmap'
+      path: '/welcome/roadmap'
+      fullPath: '/welcome/roadmap'
+      preLoaderRoute: typeof WelcomeRoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome/resources': {
+      id: '/welcome/resources'
+      path: '/welcome/resources'
+      fullPath: '/welcome/resources'
+      preLoaderRoute: typeof WelcomeResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome/opportunities': {
+      id: '/welcome/opportunities'
+      path: '/welcome/opportunities'
+      fullPath: '/welcome/opportunities'
+      preLoaderRoute: typeof WelcomeOpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome/guidance': {
+      id: '/welcome/guidance'
+      path: '/welcome/guidance'
+      fullPath: '/welcome/guidance'
+      preLoaderRoute: typeof WelcomeGuidanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome/goal-insights': {
+      id: '/welcome/goal-insights'
+      path: '/welcome/goal-insights'
+      fullPath: '/welcome/goal-insights'
+      preLoaderRoute: typeof WelcomeGoalInsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome/community': {
+      id: '/welcome/community'
+      path: '/welcome/community'
+      fullPath: '/welcome/community'
+      preLoaderRoute: typeof WelcomeCommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WelcomeCommunityRoute: WelcomeCommunityRoute,
+  WelcomeGoalInsightsRoute: WelcomeGoalInsightsRoute,
+  WelcomeGuidanceRoute: WelcomeGuidanceRoute,
+  WelcomeOpportunitiesRoute: WelcomeOpportunitiesRoute,
+  WelcomeResourcesRoute: WelcomeResourcesRoute,
+  WelcomeRoadmapRoute: WelcomeRoadmapRoute,
+  WelcomeToolkitRoute: WelcomeToolkitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
